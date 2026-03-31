@@ -2,31 +2,31 @@
 
 const items = [
   "🏀 唱跳 Rap 篮球",
-  "20+ 开源仓库",
-  "练习时长 2.5 年",
+  "✦ 20+ 开源仓库",
+  "⏱ 练习时长 2.5 年",
   "∞ ikun 浓度",
   "🐔 鸡你太美",
-  "PyTorch 原生实现",
-  "从零手写每一行",
-  "大道至简",
+  "🔥 PyTorch 原生",
+  "✎ 从零手写每一行",
+  "☯ 大道至简",
   "🏀 唱跳 Rap 篮球",
-  "20+ 开源仓库",
-  "练习时长 2.5 年",
+  "✦ 20+ 开源仓库",
+  "⏱ 练习时长 2.5 年",
   "∞ ikun 浓度",
   "🐔 鸡你太美",
-  "PyTorch 原生实现",
-  "从零手写每一行",
-  "大道至简",
+  "🔥 PyTorch 原生",
+  "✎ 从零手写每一行",
+  "☯ 大道至简",
 ];
 
 export default function Stats() {
   return (
-    <div className="relative py-1 overflow-hidden border-y border-line">
+    <div className="relative overflow-hidden border-y border-line bg-surface/50 backdrop-blur-sm">
       <div className="marquee-track py-5">
         {items.map((item, i) => (
           <span
             key={i}
-            className="font-display font-600 text-sm text-text-3 whitespace-nowrap tracking-wide hover:text-accent transition-colors duration-300 cursor-default"
+            className="font-display font-500 text-[13px] text-text-3 whitespace-nowrap tracking-wider hover:text-accent transition-colors duration-500 cursor-default select-none"
           >
             {item}
           </span>

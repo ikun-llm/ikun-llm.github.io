@@ -1,43 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,400;12..96,600;12..96,700;12..96,800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg-void: #060608;
-  --color-bg-elevated: #0e0e12;
-  --color-bg-glass: rgba(14, 14, 18, 0.6);
-  --color-bg-glass-hover: rgba(20, 20, 26, 0.8);
-  --color-accent: #ff6b00;
-  --color-accent-warm: #ffb800;
-  --color-accent-soft: rgba(255, 107, 0, 0.08);
-  --color-text-1: #f0eeeb;
-  --color-text-2: #999590;
-  --color-text-3: #555250;
+  --color-void: #050507;
+  --color-surface: #0c0c10;
+  --color-glass: rgba(12, 12, 16, 0.55);
+  --color-glass-strong: rgba(16, 16, 22, 0.75);
+  --color-accent: #ff6a00;
+  --color-amber: #ffb600;
+  --color-text-1: #edebe8;
+  --color-text-2: #807c78;
+  --color-text-3: #4a4745;
   --color-line: rgba(255, 255, 255, 0.06);
-  --color-line-accent: rgba(255, 107, 0, 0.15);
 
-  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-display: "Outfit", sans-serif;
   --font-body: "Noto Sans SC", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --animate-float-a: floatA 20s ease-in-out infinite;
-  --animate-float-b: floatB 28s ease-in-out infinite;
-  --animate-spin-slow: spinSlow 12s linear infinite;
-  --animate-marquee: marquee 40s linear infinite;
+  --animate-aurora: aurora 20s ease-in-out infinite alternate;
+  --animate-marquee: marquee 50s linear infinite;
   --animate-bounce-ball: bounceBall 2.5s ease-in-out infinite;
-  --animate-glow-breathe: glowBreathe 5s ease-in-out infinite;
-  --animate-mesh-shift: meshShift 15s ease-in-out infinite;
+  --animate-spin-slow: spinSlow 20s linear infinite;
 
-  @keyframes floatA {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-80px, 50px) scale(1.15); }
-  }
-  @keyframes floatB {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(60px, -60px) scale(1.1); }
-  }
-  @keyframes spinSlow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  @keyframes aurora {
+    0%   { background-position: 0% 50%; filter: hue-rotate(0deg); }
+    50%  { background-position: 100% 50%; filter: hue-rotate(15deg); }
+    100% { background-position: 0% 50%; filter: hue-rotate(0deg); }
   }
   @keyframes marquee {
     from { transform: translateX(0); }
@@ -47,97 +35,96 @@
     0%, 100% { transform: translateY(0) rotate(0deg); }
     50% { transform: translateY(-10px) rotate(8deg); }
   }
-  @keyframes glowBreathe {
-    0%, 100% { opacity: 0.35; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.05); }
-  }
-  @keyframes meshShift {
-    0%, 100% { background-position: 0% 50%; }
-    25% { background-position: 100% 25%; }
-    50% { background-position: 50% 100%; }
-    75% { background-position: 25% 0%; }
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; }
 
 body {
-  background: var(--color-bg-void);
+  background: var(--color-void);
   color: var(--color-text-1);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* ═══ Noise grain ═══ */
+/* ═══ Noise ═══ */
 .noise {
-  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.03;
+  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ═══ Mesh gradient background ═══ */
-.mesh-bg {
-  position: absolute; inset: 0; z-index: 0;
+/* ═══ Aurora background ═══ */
+.aurora {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 50% at 20% 30%, rgba(255,107,0,0.06), transparent),
-    radial-gradient(ellipse 50% 60% at 80% 70%, rgba(255,184,0,0.04), transparent),
-    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(255,107,0,0.03), transparent);
-  background-size: 200% 200%;
-  animation: meshShift 15s ease-in-out infinite;
+    radial-gradient(ellipse 80% 60% at 20% 20%, rgba(255,106,0,0.07), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 80%, rgba(255,182,0,0.05), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 60% 30%, rgba(255,106,0,0.04), transparent 50%);
+  background-size: 300% 300%;
+  animation: aurora 20s ease-in-out infinite alternate;
 }
 
-/* ═══ Glass card ═══ */
+/* ═══ Mouse glow ═══ */
+.mouse-glow {
+  position: fixed;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,106,0,0.06), transparent 65%);
+  pointer-events: none;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  transition: left 0.3s ease-out, top 0.3s ease-out;
+}
+
+/* ═══ Glass ═══ */
 .glass {
-  background: var(--color-bg-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--color-glass);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
   border: 1px solid var(--color-line);
-  border-radius: 20px;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 24px;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .glass:hover {
-  background: var(--color-bg-glass-hover);
-  border-color: var(--color-line-accent);
-  transform: translateY(-4px);
-  box-shadow: 0 24px 80px rgba(255,107,0,0.06);
+  background: var(--color-glass-strong);
+  border-color: rgba(255,106,0,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 30px 100px rgba(255,106,0,0.06), 0 0 0 1px rgba(255,106,0,0.08);
 }
-
-/* ═══ Spinning gradient border ═══ */
-.spin-border {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-}
-.spin-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 20px;
-  background: conic-gradient(from 0deg, transparent, var(--color-accent), transparent, transparent);
-  animation: spinSlow 12s linear infinite;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-.spin-border:hover::before { opacity: 0.3; }
-.spin-border > * { position: relative; z-index: 1; }
-
-/* ═══ Marquee strip ═══ */
-.marquee-track {
-  display: flex; gap: 80px; width: max-content;
-  animation: marquee 40s linear infinite;
-}
-.marquee-track:hover { animation-play-state: paused; }
 
 /* ═══ Court line ═══ */
 .court-line {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-line-accent), var(--color-accent), var(--color-line-accent), transparent);
-  opacity: 0.5;
+  background: linear-gradient(90deg, transparent 5%, var(--color-line) 20%, rgba(255,106,0,0.2) 50%, var(--color-line) 80%, transparent 95%);
 }
+
+/* ═══ Marquee ═══ */
+.marquee-track {
+  display: flex; gap: 64px; width: max-content;
+  animation: marquee 50s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ═══ Horizontal scroll ═══ */
+.h-scroll-container {
+  display: flex; gap: 16px;
+  overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 16px;
+}
+.h-scroll-container::-webkit-scrollbar { display: none; }
+.h-scroll-item { scroll-snap-align: start; flex-shrink: 0; }
 
 /* ═══ Scrollbar ═══ */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
 
-::selection { background: rgba(255,107,0,0.3); color: #fff; }
+::selection { background: rgba(255,106,0,0.25); color: #fff; }
