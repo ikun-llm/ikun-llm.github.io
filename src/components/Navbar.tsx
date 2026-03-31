@@ -31,7 +31,7 @@ export default function Navbar() {
       <div className="t-container flex items-center justify-between h-16">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 shrink-0">
-          <span className="text-xl">🐔</span>
+          <img src="/icons/mascot.png" alt="IKUN" className="w-7 h-7 rounded" />
           <span
             className="text-lg font-bold tracking-wide"
             style={{ fontFamily: "var(--font-display)" }}
@@ -61,7 +61,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-sm text-text-2 border border-line rounded-lg hover:text-text-1 hover:border-text-3 transition-all duration-200"
           >
-            🤗 HuggingFace
+            HuggingFace
           </a>
           <a
             href="https://github.com/ikun-llm"

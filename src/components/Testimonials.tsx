@@ -6,11 +6,9 @@ import { testimonials } from "@/data/site";
 function TestimonialCard({
   quote,
   author,
-  avatar,
 }: {
   quote: string;
   author: string;
-  avatar: string;
 }) {
   return (
     <div className="t-card shrink-0 w-[320px] p-6 flex flex-col gap-4">
@@ -18,7 +16,9 @@ function TestimonialCard({
         &ldquo;{quote}&rdquo;
       </p>
       <div className="flex items-center gap-3">
-        <span className="text-xl">{avatar}</span>
+        <span className="bg-accent text-void w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">
+          {author.charAt(0)}
+        </span>
         <span className="text-xs text-text-3">{author}</span>
       </div>
     </div>

@@ -41,7 +41,7 @@ export default function Trust() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <span className="text-4xl mb-6">{item.emoji}</span>
+              <img src={item.icon} alt="" className="w-10 h-10 rounded mb-6" />
               <h3
                 className="text-xl font-bold mb-3"
                 style={{ fontFamily: "var(--font-display)" }}

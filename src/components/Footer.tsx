@@ -13,7 +13,7 @@ export default function Footer() {
           {/* Logo column */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-xl">🐔</span>
+              <img src="/icons/mascot.png" alt="IKUN" className="w-7 h-7 rounded" />
               <span
                 className="text-lg font-bold"
                 style={{ fontFamily: "var(--font-display)" }}
@@ -114,7 +114,7 @@ export default function Footer() {
                 className="text-sm text-text-3 hover:text-text-1 transition-colors duration-200"
                 title={link.name}
               >
-                {link.icon}
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded bg-card text-[10px] font-bold text-text-2">{link.icon}</span>
               </a>
             ))}
           </div>

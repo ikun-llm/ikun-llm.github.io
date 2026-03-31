@@ -28,7 +28,7 @@ for epoch in range(epochs):
         optimizer.step()
         optimizer.zero_grad()
 
-print("练习时长两年半，模型训练完成! 🐔")`;
+print("练习时长两年半，模型训练完成!")`;
 
 export default function Showcase() {
   return (

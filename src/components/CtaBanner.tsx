@@ -32,7 +32,7 @@ export default function CtaBanner() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 mt-12 px-8 py-4 text-base font-semibold text-void bg-accent rounded-xl hover:bg-accent-hover transition-colors duration-200"
           >
-            🤗 HuggingFace
+            HuggingFace
             <span>→</span>
           </a>
         </motion.div>

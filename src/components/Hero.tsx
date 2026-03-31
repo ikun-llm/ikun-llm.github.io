@@ -30,7 +30,7 @@ export default function Hero() {
               className="text-3xl md:text-4xl text-text-2 font-light mb-4 tracking-wide"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              练习时长两年半 🏀
+              练习时长两年半 <img src="/icons/basketball.png" alt="" className="w-6 h-6 inline-block rounded" />
             </p>
             <h1
               className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-accent leading-[1.05] tracking-tight"
@@ -71,7 +71,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-void bg-accent rounded-xl hover:bg-accent-hover transition-colors duration-200"
               >
-                🤗 加入 IKUN
+                加入 IKUN
               </a>
               <a
                 href="https://github.com/ikun-llm"

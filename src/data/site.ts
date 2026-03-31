@@ -77,91 +77,91 @@ uvicorn serve_openai_api:app --port 8000
 /* ── Feature cards: horizontal scroll repos ── */
 export const featureCards = [
   {
-    emoji: "🐔",
+    icon: "/icons/mascot.png",
     name: "ikun-2.5B",
     description: "练习时长两年半的 AI 大模型（实际 26M，2.5B = 两年半）",
     url: "https://github.com/ikun-llm/ikun-2.5B",
   },
   {
-    emoji: "📖",
+    icon: "/icons/book.png",
     name: "ikun-basics",
     description: "练习生的 AI 基础功课，小白也能听懂",
     url: "https://github.com/ikun-llm/ikun-basics",
   },
   {
-    emoji: "🔤",
+    icon: "/icons/tokenizer.png",
     name: "ikun-tokenizer",
     description: "从零训练 BPE 分词器，理解 subword 原理",
     url: "https://github.com/ikun-llm/ikun-tokenizer",
   },
   {
-    emoji: "📚",
+    icon: "/icons/pretrain.png",
     name: "ikun-pretrain",
     description: "从零预训练语言模型，单卡 / DDP 多卡",
     url: "https://github.com/ikun-llm/ikun-pretrain",
   },
   {
-    emoji: "👍",
+    icon: "/icons/thumbsup.png",
     name: "ikun-DPO",
     description: "偏好对齐训练 Direct Preference Optimization",
     url: "https://github.com/ikun-llm/ikun-DPO",
   },
   {
-    emoji: "🎮",
+    icon: "/icons/gamepad.png",
     name: "ikun-GRPO",
     description: "强化学习对齐 Group Relative Policy Optimization",
     url: "https://github.com/ikun-llm/ikun-GRPO",
   },
   {
-    emoji: "🧠",
+    icon: "/icons/brain.png",
     name: "ikun-Reason",
     description: "推理模型训练，结构化思维链 chain-of-thought",
     url: "https://github.com/ikun-llm/ikun-Reason",
   },
   {
-    emoji: "🧩",
+    icon: "/icons/puzzle.png",
     name: "ikun-MoE",
     description: "混合专家模型 Mixture of Experts",
     url: "https://github.com/ikun-llm/ikun-MoE",
   },
   {
-    emoji: "🎓",
+    icon: "/icons/graduation.png",
     name: "ikun-Distill",
     description: "知识蒸馏 Knowledge Distillation",
     url: "https://github.com/ikun-llm/ikun-Distill",
   },
   {
-    emoji: "👁️",
+    icon: "/icons/eye.png",
     name: "ikun-V",
     description: "多模态视觉语言模型 Vision-Language Model",
     url: "https://github.com/ikun-llm/ikun-V",
   },
   {
-    emoji: "🚀",
+    icon: "/icons/rocket.png",
     name: "ikun-deploy",
     description: "模型部署 API / Web / ollama / vllm",
     url: "https://github.com/ikun-llm/ikun-deploy",
   },
   {
-    emoji: "😂",
+    icon: "/icons/laugh.png",
     name: "ikun 表情包",
     description: "IKUN 表情包大全，斗图必备",
     url: "https://github.com/ikun-llm/ikun",
   },
   {
-    emoji: "🎵",
+    icon: "/icons/music.png",
     name: "鸡乐盒",
     description: "鸡乐盒 Jilehe - 仅供娱乐",
     url: "https://github.com/ikun-llm/Jilehe",
   },
   {
-    emoji: "🖱️",
+    icon: "/icons/cursor.png",
     name: "ikun-mouse",
     description: "快来领养一只自己的桌面小坤坤",
     url: "https://github.com/ikun-llm/ikun-mouse",
   },
   {
-    emoji: "🐥",
+    icon: "/icons/blocks.png",
     name: "ikun-ui",
     description: "Vue3 + Vite 打造的 ikun 组件库",
     url: "https://github.com/ikun-llm/ikun-ui",
@@ -173,91 +173,77 @@ export const testimonials = [
   {
     quote: "ikun 的代码写得比我打篮球还丝滑",
     author: "小黑子A",
-    avatar: "🏀",
   },
   {
     quote: "自从用了 ikun-2.5B，我的模型也学会了唱跳 Rap",
     author: "AI练习生",
-    avatar: "🎤",
   },
   {
     quote: "练习时长两年半，终于把 Transformer 搞懂了",
     author: "坤坤学徒",
-    avatar: "🐔",
   },
   {
     quote: "ikun-GRPO 的实现比 DeepSeek 论文还好读，太感动了",
     author: "强化学习摸鱼人",
-    avatar: "🎮",
   },
   {
     quote: "在鸡乐盒里找到了人生的意义",
     author: "哲学家坤",
-    avatar: "🎵",
   },
   {
     quote: "26M 参数就能对话，比我的篮球技术还高效",
     author: "参数精算师",
-    avatar: "📊",
   },
   {
     quote: "ikun-tokenizer 让我理解了为什么 LLM 不会打篮球",
     author: "分词器研究员",
-    avatar: "🔤",
   },
   {
     quote: "用 ikun-V 给坤坤照片做了图文理解，它说：鸡你太美",
     author: "多模态玩家",
-    avatar: "👁️",
   },
   {
     quote: "DPO 对齐之后，模型终于学会了只说好听的话",
     author: "对齐工程师",
-    avatar: "👍",
   },
   {
     quote: "ikun-MoE 的路由策略比我选外卖还智能",
     author: "专家路由器",
-    avatar: "🧩",
   },
   {
     quote: "三块钱训了个大模型，比我买奶茶还便宜",
     author: "节俭练习生",
-    avatar: "💰",
   },
   {
     quote: "ikun-deploy 一键部署，比我投三分球还准",
     author: "运维坤",
-    avatar: "🚀",
   },
   {
     quote: "从零手写代码的快乐，只有 ikun 能懂",
     author: "原生代码爱好者",
-    avatar: "💻",
   },
   {
     quote: "看完 ikun-basics 才知道，原来 AI 也需要练习两年半",
     author: "入门选手",
-    avatar: "📖",
   },
 ] as const;
 
 /* ── Trust: 3-column "Why IKUN" ── */
 export const trustItems = [
   {
-    emoji: "💡",
+    icon: "/icons/lightbulb.png",
     title: "大道至简",
     description:
       "拒绝黑盒，每一行代码都从零手写，PyTorch 原生实现，无第三方训练抽象。你看到的就是全部，不藏一行 magic。",
   },
   {
-    emoji: "🔗",
+    icon: "/icons/chain.png",
     title: "完整链路",
     description:
       "从 Tokenizer 到部署，覆盖 LLM 训练全链路，每个环节独立成库。预训练、SFT、DPO、GRPO、MoE、蒸馏、推理、多模态、部署一应俱全。",
   },
   {
-    emoji: "🌍",
+    icon: "/icons/globe.png",
     title: "社区驱动",
     description:
       "20+ 开源仓库，活跃的 ikun 社区。HuggingFace 模型一站式获取，Bilibili 视频教程同步更新，微信群实时交流。",
@@ -267,22 +253,22 @@ export const trustItems = [
 /* ── Community links ── */
 export const communityLinks = [
   {
-    icon: "🤗",
+    icon: "HF",
     name: "HuggingFace",
     url: "https://huggingface.co/IKUN-LLM",
   },
   {
-    icon: "💻",
+    icon: "GH",
     name: "GitHub",
     url: "https://github.com/ikun-llm",
   },
   {
-    icon: "🎬",
+    icon: "B",
     name: "Bilibili",
     url: "https://www.bilibili.com/video/BV12dHPeqE72/",
   },
   {
-    icon: "📱",
+    icon: "WX",
     name: "微信社群",
     url: "#",
   },

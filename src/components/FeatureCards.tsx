@@ -91,7 +91,7 @@ export default function FeatureCards() {
               ease: [0.16, 1, 0.3, 1],
             }}
           >
-            <span className="text-3xl mb-4">{card.emoji}</span>
+            <img src={card.icon} alt="" className="w-8 h-8 rounded mb-4" />
             <h3
               className="text-base font-semibold mb-2 group-hover:text-accent transition-colors duration-200"
               style={{ fontFamily: "var(--font-display)" }}
