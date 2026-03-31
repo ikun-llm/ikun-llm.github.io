@@ -3,8 +3,9 @@
 
 @theme inline {
   --color-void: #050507;
-  --color-surface: #0d0d0f;
+  --color-surface: #0d0d10;
   --color-card: #111114;
+  --color-card-hover: #19191d;
   --color-accent: #ff6a00;
   --color-accent-hover: #ff8533;
   --color-text-1: #ffffff;
@@ -16,16 +17,16 @@
   --font-body: "Noto Sans SC", "Plus Jakarta Sans", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --animate-marquee: marquee 60s linear infinite;
-  --animate-pixel-fade: pixelFade 4s ease-in-out infinite;
+  --animate-marquee-left: marqueeLeft 80s linear infinite;
+  --animate-marquee-right: marqueeRight 80s linear infinite;
 
-  @keyframes marquee {
+  @keyframes marqueeLeft {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
-  @keyframes pixelFade {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.8; }
+  @keyframes marqueeRight {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
   }
 }
 
@@ -39,44 +40,41 @@ body {
   overflow-x: hidden;
 }
 
-/* ═══ Pixel particle background ═══ */
-.pixel-bg {
-  position: absolute; inset: 0; overflow: hidden; z-index: 0;
-}
-.pixel-bg canvas { width: 100%; height: 100%; }
-
-/* ═══ Section standard spacing ═══ */
-.section-gap { padding: 140px 0; }
-
-/* ═══ Card ═══ */
-.trae-card {
+/* Trae-style card */
+.t-card {
   background: var(--color-card);
   border: 1px solid var(--color-line);
   border-radius: 16px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.trae-card:hover {
-  border-color: rgba(255, 106, 0, 0.2);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+.t-card:hover {
+  background: var(--color-card-hover);
+  border-color: rgba(255, 106, 0, 0.15);
+  transform: translateY(-2px);
 }
 
-/* ═══ Court line ═══ */
-.divider {
+/* Divider */
+.t-divider {
   height: 1px;
   background: var(--color-line);
 }
 
-/* ═══ Marquee ═══ */
-.marquee-track {
-  display: flex; gap: 48px; width: max-content;
-  animation: marquee 60s linear infinite;
+/* Marquee */
+.marquee-left {
+  display: flex; gap: 20px; width: max-content;
+  animation: marqueeLeft 80s linear infinite;
 }
-.marquee-track:hover { animation-play-state: paused; }
+.marquee-right {
+  display: flex; gap: 20px; width: max-content;
+  animation: marqueeRight 80s linear infinite;
+}
 
-/* ═══ Scrollbar ═══ */
+/* Section spacing */
+.t-section { padding: 140px 0; }
+.t-container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+
+/* Scrollbar */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
-
 ::selection { background: rgba(255,106,0,0.3); color: #fff; }

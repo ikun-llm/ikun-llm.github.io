@@ -1,55 +1,75 @@
 "use client";
 
 import { motion } from "framer-motion";
-import PixelGrid from "@/components/PixelGrid";
+import PixelGrid from "./PixelGrid";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-end pb-24 md:pb-32 overflow-hidden">
-      {/* Pixel particle background */}
+    <section className="relative min-h-screen flex items-end overflow-hidden">
+      {/* Pixel canvas background */}
       <PixelGrid />
 
-      {/* Content — split layout like TRAE */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-10 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
-          {/* Left: massive title */}
-          <div>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="font-display font-400 text-3xl md:text-5xl text-text-2 leading-tight mb-2"
+      {/* Gradient fade at bottom */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-48 z-[1] pointer-events-none"
+        style={{
+          background: "linear-gradient(to top, var(--color-void), transparent)",
+        }}
+      />
+
+      {/* Content */}
+      <div className="t-container relative z-10 w-full pb-24 pt-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
+          {/* Left: Titles */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <p
+              className="text-3xl md:text-4xl text-text-2 font-light mb-4 tracking-wide"
+              style={{ fontFamily: "var(--font-display)" }}
             >
               练习时长两年半 🏀
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.6 }}
-              className="font-display font-800 text-6xl md:text-8xl lg:text-[96px] text-accent leading-[0.9] tracking-[-0.03em]"
+            </p>
+            <h1
+              className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-accent leading-[1.05] tracking-tight"
+              style={{ fontFamily: "var(--font-display)" }}
             >
               鸡你太美
-            </motion.h1>
-          </div>
+            </h1>
+          </motion.div>
 
-          {/* Right: description + CTAs */}
+          {/* Right: Description + CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.15,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="flex flex-col gap-6"
           >
-            <p className="font-display font-500 text-base text-text-2 mb-2">
+            <p
+              className="text-lg md:text-xl text-text-2 font-medium"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               大道至简
             </p>
-            <p className="text-sm text-text-3 mb-8 max-w-sm leading-relaxed">
-              IKUN-LLM 是全网最有梗的 AI 开源社区。唱、跳、Rap、篮球……和从零训练大语言模型。20+ 开源仓库，完整的 LLM 全链路实现。
+            <p className="text-text-3 leading-relaxed max-w-md">
+              IKUN-LLM
+              是一个从零手写大语言模型训练全链路的开源社区。20+
+              仓库覆盖分词器、预训练、SFT、DPO、GRPO、MoE、蒸馏、推理、多模态到部署，每一行代码都用
+              PyTorch 原生实现，拒绝黑盒。
             </p>
-            <div className="flex flex-col gap-3">
+
+            <div className="flex flex-col sm:flex-row items-start gap-4 mt-2">
               <a
                 href="https://huggingface.co/IKUN-LLM"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg text-[14px] font-display font-700 bg-accent text-void hover:bg-accent-hover transition-colors w-fit"
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-void bg-accent rounded-xl hover:bg-accent-hover transition-colors duration-200"
               >
                 🤗 加入 IKUN
               </a>
@@ -57,9 +77,10 @@ export default function Hero() {
                 href="https://github.com/ikun-llm"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[14px] font-display font-500 text-text-2 hover:text-text-1 transition-colors w-fit"
+                className="inline-flex items-center gap-2 text-sm text-text-2 hover:text-accent transition-colors duration-200 py-3"
               >
-                GitHub →
+                GitHub
+                <span className="text-accent">→</span>
               </a>
             </div>
           </motion.div>
