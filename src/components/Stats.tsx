@@ -1,33 +1,37 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { orgHighlights } from "@/data/models";
+const items = [
+  "🏀 唱跳 Rap 篮球",
+  "20+ 开源仓库",
+  "练习时长 2.5 年",
+  "∞ ikun 浓度",
+  "🐔 鸡你太美",
+  "PyTorch 原生实现",
+  "从零手写每一行",
+  "大道至简",
+  "🏀 唱跳 Rap 篮球",
+  "20+ 开源仓库",
+  "练习时长 2.5 年",
+  "∞ ikun 浓度",
+  "🐔 鸡你太美",
+  "PyTorch 原生实现",
+  "从零手写每一行",
+  "大道至简",
+];
 
 export default function Stats() {
   return (
-    <div className="relative py-6">
-      {/* Court lines */}
-      <div className="court-line" />
-      <div className="flex justify-center gap-0 divide-x divide-border">
-        {orgHighlights.map((stat, i) => (
-          <motion.div
-            key={stat.label}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.15 }}
-            className="text-center px-10 md:px-16 py-8"
+    <div className="relative py-1 overflow-hidden border-y border-line">
+      <div className="marquee-track py-5">
+        {items.map((item, i) => (
+          <span
+            key={i}
+            className="font-display font-600 text-sm text-text-3 whitespace-nowrap tracking-wide hover:text-accent transition-colors duration-300 cursor-default"
           >
-            <div className="font-display font-800 text-3xl md:text-4xl text-accent mb-1">
-              {stat.value}
-            </div>
-            <div className="text-[11px] font-display font-500 text-text-muted uppercase tracking-[0.15em]">
-              {stat.label}
-            </div>
-          </motion.div>
+            {item}
+          </span>
         ))}
       </div>
-      <div className="court-line" />
     </div>
   );
 }

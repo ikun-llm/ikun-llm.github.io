@@ -19,14 +19,7 @@ export default function RootLayout({
   return (
     <html lang="zh">
       <body className="relative overflow-x-hidden">
-        {/* Noise grain */}
-        <div className="noise-overlay" />
-
-        {/* Glow orbs */}
-        <div className="glow-orb w-[500px] h-[500px] -top-[200px] right-[10%] bg-[radial-gradient(circle,rgba(255,107,0,0.08),transparent)] animate-float-slow" />
-        <div className="glow-orb w-[400px] h-[400px] top-[60%] -left-[100px] bg-[radial-gradient(circle,rgba(255,184,0,0.06),transparent)] animate-float-slower" />
-
-        {/* Content */}
+        <div className="noise" />
         <div className="relative z-10">{children}</div>
       </body>
     </html>
