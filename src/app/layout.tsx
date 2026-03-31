@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "IKUN-LLM | 大道至简 — 从零训练大语言模型",
+  title: "IKUN — 练习时长两年半的 AI 开源社区",
   description:
-    "3块钱 · 2小时 · 从零训练你的大语言模型。开源、轻量、全流程可复现的 LLM 教育项目。",
+    "🐔 鸡你太美 · 大道至简 · 唱跳 Rap 篮球和训练大语言模型。IKUN-LLM 开源组织官网。",
   openGraph: {
-    title: "IKUN-LLM | 大道至简",
-    description: "从零训练你的大语言模型",
-    images: ["/og-image.png"],
+    title: "IKUN — 鸡你太美 · 大道至简",
+    description: "练习时长两年半的 AI 开源社区",
   },
 };
 
@@ -18,12 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh" className="scroll-smooth">
+    <html lang="zh">
       <body className="relative overflow-x-hidden">
-        {/* Background effects */}
-        <div className="bg-grid fixed inset-0 pointer-events-none z-0" />
-        <div className="glow-orb -top-[200px] -right-[100px] bg-[radial-gradient(circle,#6366f1,transparent)] animate-float-slow" />
-        <div className="glow-orb -bottom-[200px] -left-[100px] bg-[radial-gradient(circle,#a78bfa,transparent)] animate-float-slower" />
+        {/* Noise grain */}
+        <div className="noise-overlay" />
+
+        {/* Glow orbs */}
+        <div className="glow-orb w-[500px] h-[500px] -top-[200px] right-[10%] bg-[radial-gradient(circle,rgba(255,107,0,0.08),transparent)] animate-float-slow" />
+        <div className="glow-orb w-[400px] h-[400px] top-[60%] -left-[100px] bg-[radial-gradient(circle,rgba(255,184,0,0.06),transparent)] animate-float-slower" />
 
         {/* Content */}
         <div className="relative z-10">{children}</div>
