@@ -1,47 +1,35 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
 @theme inline {
   --color-void: #050507;
-  --color-surface: #0c0c10;
-  --color-glass: rgba(12, 12, 16, 0.55);
-  --color-glass-strong: rgba(16, 16, 22, 0.75);
+  --color-surface: #0d0d0f;
+  --color-card: #111114;
   --color-accent: #ff6a00;
-  --color-amber: #ffb600;
-  --color-text-1: #edebe8;
-  --color-text-2: #807c78;
-  --color-text-3: #4a4745;
-  --color-line: rgba(255, 255, 255, 0.06);
+  --color-accent-hover: #ff8533;
+  --color-text-1: #ffffff;
+  --color-text-2: #999;
+  --color-text-3: #555;
+  --color-line: rgba(255,255,255,0.08);
 
-  --font-display: "Outfit", sans-serif;
-  --font-body: "Noto Sans SC", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Noto Sans SC", "Plus Jakarta Sans", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --animate-aurora: aurora 20s ease-in-out infinite alternate;
-  --animate-marquee: marquee 50s linear infinite;
-  --animate-bounce-ball: bounceBall 2.5s ease-in-out infinite;
-  --animate-spin-slow: spinSlow 20s linear infinite;
+  --animate-marquee: marquee 60s linear infinite;
+  --animate-pixel-fade: pixelFade 4s ease-in-out infinite;
 
-  @keyframes aurora {
-    0%   { background-position: 0% 50%; filter: hue-rotate(0deg); }
-    50%  { background-position: 100% 50%; filter: hue-rotate(15deg); }
-    100% { background-position: 0% 50%; filter: hue-rotate(0deg); }
-  }
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
-  @keyframes bounceBall {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(8deg); }
-  }
-  @keyframes spinSlow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  @keyframes pixelFade {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
   }
 }
 
-html { scroll-behavior: auto; }
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--color-void);
@@ -51,80 +39,44 @@ body {
   overflow-x: hidden;
 }
 
-/* ═══ Noise ═══ */
-.noise {
-  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+/* ═══ Pixel particle background ═══ */
+.pixel-bg {
+  position: absolute; inset: 0; overflow: hidden; z-index: 0;
 }
+.pixel-bg canvas { width: 100%; height: 100%; }
 
-/* ═══ Aurora background ═══ */
-.aurora {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background:
-    radial-gradient(ellipse 80% 60% at 20% 20%, rgba(255,106,0,0.07), transparent 60%),
-    radial-gradient(ellipse 60% 80% at 80% 80%, rgba(255,182,0,0.05), transparent 60%),
-    radial-gradient(ellipse 50% 50% at 60% 30%, rgba(255,106,0,0.04), transparent 50%);
-  background-size: 300% 300%;
-  animation: aurora 20s ease-in-out infinite alternate;
-}
+/* ═══ Section standard spacing ═══ */
+.section-gap { padding: 140px 0; }
 
-/* ═══ Mouse glow ═══ */
-.mouse-glow {
-  position: fixed;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,106,0,0.06), transparent 65%);
-  pointer-events: none;
-  z-index: 2;
-  transform: translate(-50%, -50%);
-  transition: left 0.3s ease-out, top 0.3s ease-out;
-}
-
-/* ═══ Glass ═══ */
-.glass {
-  background: var(--color-glass);
-  backdrop-filter: blur(24px) saturate(1.2);
-  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+/* ═══ Card ═══ */
+.trae-card {
+  background: var(--color-card);
   border: 1px solid var(--color-line);
-  border-radius: 24px;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.glass:hover {
-  background: var(--color-glass-strong);
-  border-color: rgba(255,106,0,0.12);
-  transform: translateY(-6px);
-  box-shadow: 0 30px 100px rgba(255,106,0,0.06), 0 0 0 1px rgba(255,106,0,0.08);
+.trae-card:hover {
+  border-color: rgba(255, 106, 0, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
 /* ═══ Court line ═══ */
-.court-line {
+.divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent 5%, var(--color-line) 20%, rgba(255,106,0,0.2) 50%, var(--color-line) 80%, transparent 95%);
+  background: var(--color-line);
 }
 
 /* ═══ Marquee ═══ */
 .marquee-track {
-  display: flex; gap: 64px; width: max-content;
-  animation: marquee 50s linear infinite;
+  display: flex; gap: 48px; width: max-content;
+  animation: marquee 60s linear infinite;
 }
 .marquee-track:hover { animation-play-state: paused; }
-
-/* ═══ Horizontal scroll ═══ */
-.h-scroll-container {
-  display: flex; gap: 16px;
-  overflow-x: auto; overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 16px;
-}
-.h-scroll-container::-webkit-scrollbar { display: none; }
-.h-scroll-item { scroll-snap-align: start; flex-shrink: 0; }
 
 /* ═══ Scrollbar ═══ */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
 
-::selection { background: rgba(255,106,0,0.25); color: #fff; }
+::selection { background: rgba(255,106,0,0.3); color: #fff; }

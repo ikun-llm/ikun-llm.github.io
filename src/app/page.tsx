@@ -4,7 +4,6 @@ import Stats from "@/components/Stats";
 import ModelCards from "@/components/ModelCards";
 import Community from "@/components/Community";
 import Footer from "@/components/Footer";
-import IkunFloat from "@/components/IkunFloat";
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <ModelCards />
       <Community />
       <Footer />
-      <IkunFloat />
     </>
   );
 }
