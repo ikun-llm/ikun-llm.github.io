@@ -3,7 +3,8 @@
 MiniMind/IKUN LLM 的展示网站，使用 Next.js 构建。
 
 - GitHub: `ikun-llm/ikun-llm.github.io`
-- Production: https://ikun-website.vercel.app
+- Production: https://ikun.rxcloud.group
+- Vercel fallback: https://ikun-website.vercel.app
 - Deployment: Vercel project `ikun-website`; see [DEPLOYMENT.md](DEPLOYMENT.md)
 - Environment template: `.env.example`
 

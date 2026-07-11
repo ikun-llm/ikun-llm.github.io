@@ -4,7 +4,8 @@
 
 - Platform: Vercel
 - Project: `ikun-website`
-- Production URL: https://ikun-website.vercel.app
+- Production URL: https://ikun.rxcloud.group
+- Vercel fallback: https://ikun-website.vercel.app
 - Framework preset: Next.js
 - Build command: `npm run build`
 
@@ -19,4 +20,4 @@ npm run lint
 npm run build
 ```
 
-After the checks pass, deploy the current commit with the linked Vercel project and verify the production URL returns HTTP 200.
+After the checks pass, deploy the current commit with the linked Vercel project and verify both production aliases return HTTP 200.

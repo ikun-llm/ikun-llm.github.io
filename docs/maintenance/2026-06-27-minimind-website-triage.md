@@ -4,7 +4,8 @@
 
 - GitHub: `ikun-llm/ikun-llm.github.io`
 - Category: Next.js website under the MiniMind workspace
-- Production: `https://ikun-website.vercel.app`
+- Production: `https://ikun.rxcloud.group`
+- Vercel fallback: `https://ikun-website.vercel.app`
 - Vercel project: `ikun-website`
 
 ## Actions Taken
